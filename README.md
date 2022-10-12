@@ -1,5 +1,8 @@
 # django-angular-todoapp
 
+![image](https://user-images.githubusercontent.com/67972962/195392713-3e33117e-e732-46ca-9303-06562adbcb4d.png)
+
+
 first create your virtualenv
 
 `$ cd api`
