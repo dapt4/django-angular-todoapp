@@ -1,0 +1,12 @@
+<div class="card-container">
+  <mat-card *ngFor="let todo of todos">
+    <mat-card-title>{{todo.title}}</mat-card-title>
+    <mat-card-subtitle>date: {{todo.created_at}}</mat-card-subtitle>
+    <div class="buttons-container">
+      <button mat-stroked-button *ngIf="todo.is_done == false" color="primary" (click)="setStatus(todo.id)">Done</button>
+      <button mat-flat-button *ngIf="todo.is_done" color="primary" (click)="setStatus(todo.id)" style="text-decoration:line-through;">Done</button>
+      <button mat-stroked-button color="accent" [routerLink]="['/edit', todo.id]">Edit</button>
+      <button mat-stroked-button color="warn" (click)="deleteTodo(todo.id)">Delete</button>
+    </div>
+  </mat-card>
+</div>

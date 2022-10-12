@@ -1,0 +1,11 @@
+.login_card{
+  width: fit-content;
+  margin: 40px auto;
+  background-color: lighten($color: #ccc, $amount: 15);
+  .mat-card-title{
+    text-align: center;
+  }
+  button{
+    width: 100%;
+  }
+}

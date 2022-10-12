@@ -1,0 +1,122 @@
+let SessionLoad = 1
+let s:so_save = &g:so | let s:siso_save = &g:siso | setg so=0 siso=0 | setl so=-1 siso=-1
+let v:this_session=expand("<sfile>:p")
+silent only
+silent tabonly
+cd ~/Documentos/django-angular-todoapp/frontend
+if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
+  let s:wipebuf = bufnr('%')
+endif
+set shortmess=aoO
+argglobal
+%argdel
+set stal=2
+tabnew
+tabnew
+tabrewind
+edit src/app/app.module.ts
+argglobal
+balt src/app/app.module.ts
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+let &fdl = &fdl
+let s:l = 1 - ((0 * winheight(0) + 19) / 38)
+if s:l < 1 | let s:l = 1 | endif
+keepjumps exe s:l
+normal! zt
+keepjumps 1
+normal! 08|
+tabnext
+edit src/app/pages/list/list.component.html
+argglobal
+balt src/app/pages/new/new.component.html
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal nofen
+silent! normal! zE
+let &fdl = &fdl
+let s:l = 9 - ((8 * winheight(0) + 19) / 38)
+if s:l < 1 | let s:l = 1 | endif
+keepjumps exe s:l
+normal! zt
+keepjumps 9
+normal! 073|
+tabnext
+edit src/app/pages/list/list.component.ts
+argglobal
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal nofen
+silent! normal! zE
+let &fdl = &fdl
+let s:l = 29 - ((28 * winheight(0) + 19) / 38)
+if s:l < 1 | let s:l = 1 | endif
+keepjumps exe s:l
+normal! zt
+keepjumps 29
+normal! 024|
+tabnext 3
+set stal=1
+badd +1 src/app/app.module.ts
+badd +29 src/app/pages/login/login.component.ts
+badd +14 src/app/app-routing.module.ts
+badd +15 src/app/pages/login/signin.service.ts
+badd +9 src/app/pages/list/get-data.service.ts
+badd +25 src/app/tokeninterceptor.interceptor.ts
+badd +19 src/app/user-guard.guard.ts
+badd +26 src/app/pages/register/register.component.ts
+badd +11 src/app/pages/register/save.service.ts
+badd +1 src/app/pages/register/register.component.html
+badd +1 src/app/pages/register/register.component.scss
+badd +37 src/app/pages/list/list.component.ts
+badd +3 src/app/app.component.html
+badd +8 src/app/pages/list/list.component.html
+badd +4 src/app/pages/register/dataTypes.ts
+badd +1 src/app/pages/login/login.component.html
+badd +1 src/app/pages/login/login.component.scss
+badd +7 src/app/pages/login/LoginTypes.ts
+badd +1 src/app/pages/new/new.component.html
+badd +1 src/app/pages/new/new.component.scss
+badd +28 src/app/pages/new/new.component.ts
+badd +3 src/app/pages/new/todoType.ts
+badd +10 src/app/pages/new/save.service.ts
+badd +7 src/app/pages/edit/edit.component.html
+badd +1 src/app/pages/edit/edit.component.scss
+badd +48 src/app/pages/edit/edit.component.ts
+badd +16 src/app/pages/edit/get-data.service.ts
+badd +2 src/app/pages/edit/todoType.ts
+badd +14 src/app/pages/edit/save.service.ts
+badd +13 src/app/pages/list/list.component.scss
+badd +15 src/app/pages/list/set-status.service.ts
+badd +13 src/app/pages/list/delete.service.ts
+if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
+  silent exe 'bwipe ' . s:wipebuf
+endif
+unlet! s:wipebuf
+set winheight=1 winwidth=20 shortmess=filnxtToOF
+let s:sx = expand("<sfile>:p:r")."x.vim"
+if filereadable(s:sx)
+  exe "source " . fnameescape(s:sx)
+endif
+let &g:so = s:so_save | let &g:siso = s:siso_save
+set hlsearch
+doautoall SessionLoadPost
+unlet SessionLoad
+" vim: set ft=vim :
