@@ -5,7 +5,7 @@
 
 first create your virtualenv
 
-`$ cd api`
+`$ cd api/`
 
 `$ python3 -m venv venv`
 
@@ -50,7 +50,7 @@ open your browser or your REST Client in:
 
 active the frontend with:
 
-`cd ../angular`\
+`cd ../frontend`\
 `ng serve`
 
 open the browser in:
